@@ -4,7 +4,7 @@ class ReservationsController < ApplicationController
   end
 
   def show
-  #  @reservation = Reservation.new
+    @reservation = Reservation.new
   end
 
   def new
@@ -14,7 +14,7 @@ class ReservationsController < ApplicationController
   def create
     reservation = Reservation.new(reservation_params)
     reservation.user = User.find(session[:user_id])
-    
+
     if reservation.save
       redirect_to user_path(reservation.user)
     else
