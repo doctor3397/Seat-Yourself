@@ -1,16 +1,15 @@
 <div>
- <h3>Account</h3>
- <p>Name: <%= @user.name %></p>
- <p>Email: <%= @user.email %></p>
+  <h3>Account</h3>
+  <p>Name: <%= @user.name %></p>
+  <p>Email: <%= @user.email %></p>
 </div>
 
-<h3>reservations</h3>
+<h3>Reservations</h3>
 
-<% @user.reservations.each do |reservation| %>
- <p>
-   <%= reservation.restaurant.name %>
-      <%= reservation.date %>
-      <%= reservation.party_size%> people
- </p>
-
- <% end %>
+<% @reservations.each do |reservation| %>
+  <p>
+    Restaurant:  <%= @restaurants.find_by(id: reservation.restaurant_id).name %>
+    Date:  <%= reservation.date %>
+    Party Size:  <%= reservation.party_size%> people
+  </p>
+<% end %>
