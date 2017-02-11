@@ -1,0 +1,45 @@
+<%= image_tag @restaurant.image %>
+  <div>
+   <h3>Name: <%= @restaurant.name %></h3>
+   <p>City: <%= @restaurant.city %></p>
+ </div>
+
+<h2>Seats Remain</h2>
+<% t = Time.now%>
+<p><% t %><%= t.year %>/<%= t.month %>/<%= t. day%> Seats remain <%= @restaurant.remain_seat(t) %></p>
+<p><% t += 1.day  %><%= t.year %>/<%= t.month %>/<%= t. day%> Seats remain <%= @restaurant.remain_seat(t) %></p>
+<p><% t += 1.day  %><%= t.year %>/<%= t.month %>/<%= t. day%> Seats remain <%= @restaurant.remain_seat(t) %></p>
+<p><% t += 1.day  %><%= t.year %>/<%= t.month %>/<%= t. day%> Seats remain <%= @restaurant.remain_seat(t) %></p>
+<p><% t += 1.day  %><%= t.year %>/<%= t.month %>/<%= t. day%> Seats remain <%= @restaurant.remain_seat(t) %></p>
+
+<div class="Book">
+
+  <h2> Book This Restaurant</h2>
+
+  <%= form_for(@reservation) do |f| %>
+
+    <%= f.hidden_field :restaurant_id %>
+
+    <div class="field">
+      <%= f.label :party_size %><br/>
+      <%= f.select :party_size, options_for_select(1..10) %>
+    </div>
+
+    <div class="field">
+     <%= f.label :date %><br />
+     <%= f.date_select :date, {order: [:year, :month, :day], use_short_month: true}, {required: true} %>
+    </div>
+
+    <div class="field">
+      <% timeslot = [["5-6PM",1], ["6-7PM", 2], ["7-8PM", 3], ["8-9PM", 4], ["9-10PM", 5]]%>
+      <%= f.label :time %><br/>
+      <%= f.select :res_time, options_for_select(timeslot)  %>
+    </div>
+
+    <div class="actions">
+     <%= f.submit 'Make Reservation' %>
+    </div>
+
+  <% end %>
+
+</div>
