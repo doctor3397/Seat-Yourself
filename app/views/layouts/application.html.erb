@@ -12,25 +12,27 @@
      <a href="/restaurants">SEAT YOURSELF</a>
 </header>
 
-<% if current_user %>
-  <p>Hello <%= current_user.email %>
-  <%= link_to 'Log Out', sessions_path, method: :delete %>
-  </p>
-  <% else %>
-  <p><%= link_to 'Log In', new_sessions_path %></p>
-<% end %>
+<main>
+  <% if current_user %>
+    <p>Hello <%= current_user.email %>
+    <%= link_to 'Log Out', sessions_path, method: :delete %>
+    </p>
+    <% else %>
+    <p><%= link_to 'Log In', new_sessions_path %></p>
+  <% end %>
 
-<body>
-  <% if flash.any? %>
-     <% flash.each do |key, value| %>
-       <p class='<%= key %>'>
-       <%= value %>
-       </p>
+  <body>
+    <% if flash.any? %>
+       <% flash.each do |key, value| %>
+         <p class='<%= key %>'>
+         <%= value %>
+         </p>
+       <% end %>
      <% end %>
-   <% end %>
 
-<%= yield %>
+  <%= yield %>
 
-</body>
+  </body>
+</main>
 
 </html>
