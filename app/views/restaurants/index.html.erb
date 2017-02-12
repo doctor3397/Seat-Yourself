@@ -1,12 +1,46 @@
+<h1>Search A Restaurant</h1>
+
+<%= form_tag  searches_path, method: "get" do |f| %>
+  <div class="field">
+    <%= label_tag :date %><br/>
+    <%= date_field_tag :date %><br/>
+
+  </div>
+  <div class="field">
+    <%= label_tag :time %><br/>
+    <%= select_tag :res_time, options_for_select([["5-6PM",1], ["6-7PM", 2], ["7-8PM", 3], ["8-9PM", 4], ["9-10PM", 5]]) %>
+  </div>
+
+  <div class="field">
+    <%= label_tag :party_size %><br/>
+    <%= select_tag :party_size, options_for_select(1..10) %>
+  </div>
+
+  <div class="field">
+    <%= label_tag :cuisine %><br/>
+    <%= select_tag :cuisine, options_for_select(@restaurants.map{|r| [r.cuisine, r.id] })%>
+  </div>
+
+  <div class="field">
+    <%= label_tag :city %><br/>
+    <%= select_tag :city, options_for_select(@restaurants.map{|r| [r.city, r.id] })%>
+  </div>
+
+  <div class="actions"><%= submit_tag "Find Restaurants" %></div>
+<% end %>
+
+
+<h1>All Restaurants</h1>
 <% @restaurants.each do |restaurant| %>
 <%= link_to restaurant.name,  restaurant_path(restaurant) %>
 
 <%= image_tag restaurant.image %>
 
  <div>
-   <h3>Name: <%= restaurant.name %></h3>
-   <p>City: <%= restaurant.city %></p>
-   <p>Name: <%= restaurant.name %></p>
+    <h3>Name: <%= restaurant.name %></h3>
+    <p>City: <%= restaurant.city %></p>
+    <p>Name: <%= restaurant.name %></p>
+    <p>Name: <%= restaurant.cuisine %></p>
  </div>
 
 <% end %>
