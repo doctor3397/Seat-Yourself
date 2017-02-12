@@ -13,13 +13,22 @@ class ReservationsController < ApplicationController
 
   def create
     reservation = Reservation.new(reservation_params)
-    reservation.user = User.find(session[:user_id])
+    user = User.find(session[:user_id])
+    restaurant = Restaurant.find(params[:reservation][:restaurant_id])
 
-    if reservation.save
-      redirect_to user_path(reservation.user)
+    if reservation.party_size < restaurant.remain_seat_search(params[:reservation][:date], params[:reservation][:res_time])
+
+      if reservation.save
+        redirect_to user_path(user)
+      else
+        redirect_to restaurant_path(params[:reservation][:restaurant_id])
+      end
+
     else
+      flash[:error] = "Sorry, we don't have enough seats for #{reservation.party_size}"
       redirect_to restaurant_path(params[:reservation][:restaurant_id])
     end
+
   end
 
   def edit
