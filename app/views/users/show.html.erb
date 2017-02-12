@@ -7,11 +7,13 @@
 <h3>Reservations</h3>
 
 <% @reservations.each do |reservation| %>
-  <p>
-    Restaurant:  <%= @restaurants.find_by(id: reservation.restaurant_id).name %>
-    Date:  <%= reservation.date %>
-    Party Size:  <%= reservation.party_size%> people
-  </p>
+  <h4><%= @restaurants.find_by(id: reservation.restaurant_id).name %></h4>
+
+  <p> Date:  <%= reservation.date %>, 
+  <% timeslot = [1,"5-6PM"], [2,"6-7PM"], [3,"7-8PM"], [4,"8-9PM"], [5,"9-10PM"]%>
+    <% hash_timeslot = Hash[timeslot] %>
+    <%=  hash_timeslot[reservation.res_time] %></p>
+  <p>Party Size:  <%= reservation.party_size%> people</p>
 
   <%= link_to 'Edit', edit_user_reservation_path(user_id: @user.id, id: reservation.id) %>
   | <%= link_to 'Delete', user_reservation_path(user_id: @user.id, id: reservation.id), method: :delete, data: {confirm: "Are you sure you want to delete the reservation?"} %>

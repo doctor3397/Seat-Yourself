@@ -12,11 +12,10 @@
 <p><% t += 1.day  %><%= t.year %>/<%= t.month %>/<%= t. day%> Seats remain <%= @restaurant.remain_seat(t) %></p>
 <p><% t += 1.day  %><%= t.year %>/<%= t.month %>/<%= t. day%> Seats remain <%= @restaurant.remain_seat(t) %></p>
 
-<h2> Book This Restaurant</h2>
+<h2>Make A Reservation</h2>
 
  <% if current_user %>
     <%= form_for(@reservation) do |f| %>
-
       <%= f.hidden_field :restaurant_id %>
 
       <div class="field">
@@ -25,12 +24,12 @@
       </div>
 
       <div class="field">
-        <%= f.label :date %><br />
-        <%= f.date_select :date, {order: [:year, :month, :day], use_short_month: true}, {required: true} %>
+        <%= f.label :date %>
+        <%= f.date_field :date %>
       </div>
 
       <div class="field">
-        <% timeslot = [["5-6PM",1], ["6-7PM", 2], ["7-8PM", 3], ["8-9PM", 4], ["9-10PM", 5]]%>
+        <% timeslot = ["5-6PM",1], ["6-7PM", 2], ["7-8PM", 3], ["8-9PM", 4], ["9-10PM", 5]%>
         <%= f.label :time %><br/>
         <%= f.select :res_time, options_for_select(timeslot)  %>
       </div>
