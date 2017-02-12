@@ -16,16 +16,6 @@
     <%= select_tag :party_size, options_for_select(1..10) %>
   </div>
 
-  <div class="field">
-    <%= label_tag :cuisine %><br/>
-    <%= select_tag :cuisine, options_for_select(@restaurants.map{|r| [r.cuisine, r.id] })%>
-  </div>
-
-  <div class="field">
-    <%= label_tag :city %><br/>
-    <%= select_tag :city, options_for_select(@restaurants.map{|r| [r.city, r.id] })%>
-  </div>
-
   <div class="actions"><%= submit_tag "Find Restaurants" %></div>
 <% end %>
 
