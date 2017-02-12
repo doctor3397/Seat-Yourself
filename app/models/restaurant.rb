@@ -15,4 +15,7 @@ class Restaurant < ApplicationRecord
     date: date,
     res_time: res_time).sum(:party_size)
   end
+
+  validates :name, :city, :cuisine, :capcity, presence: true
+  validates :name, uniqueness: true
 end
