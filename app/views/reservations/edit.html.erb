@@ -1,6 +1,16 @@
 <%= form_for(@reservation) do |f| %>
   <%= f.hidden_field :restaurant_id %>
 
+  <% if @reservation.errors.any? %>
+    <div class="error_messages">
+      <h4>Reservation not confirmed because:</h4>
+      <% @reservation.errors.full_messages.each do |message| %><br>
+        <%= message %>
+      <% end %>
+    </div>
+  <% end %>
+
+  <h2>Edit Reservation</h2>
   <div class="field">
     <%= f.label :party_size %><br/>
     <%= f.select :party_size, options_for_select(1..10) %>
@@ -18,7 +28,7 @@
   </div>
 
   <div class="actions">
-    <%= f.submit 'Edit Reservation' %>
+    <%= f.submit 'Edit' %>
   </div>
 
 <% end %>

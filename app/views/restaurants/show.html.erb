@@ -16,8 +16,18 @@
 <h2>Make A Reservation</h2>
 
  <% if current_user %>
+
     <%= form_for(@reservation) do |f| %>
       <%= f.hidden_field :restaurant_id %>
+
+      <% if @reservation.errors.any? %>
+        <div class="error_messages">
+          <h4>Reservation not confirmed because:</h4>
+          <% @reservation.errors.full_messages.each do |message| %><br>
+            <%= message %>
+          <% end %>
+        </div>
+      <% end %>
 
       <div class="field">
         <%= f.label :party_size %><br/>
@@ -42,6 +52,7 @@
     <% end %>
 
 <% else %>
+
   <p>To make a reservation, please
     <%= link_to("Log In", new_sessions_path)%>
     <%= link_to("Sign Up", new_user_path)%>.</p>
