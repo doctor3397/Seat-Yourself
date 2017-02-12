@@ -23,19 +23,27 @@ class ReservationsController < ApplicationController
   end
 
   def edit
+    @reservation = Reservation.find(params[:id])
   end
 
   def update
+    @reservation = Reservation.find(params[:id])
+    @user = User.find_by(id: @reservation.user_id)
+
+    if @reservation.update_attributes(reservation_params)
+      redirect_to user_path(@user)
+    else
+      render :edit
+    end
   end
 
   def destroy
-   @reservation = Reservation.find(params[:id])
-   @reservation.destroy
-   redirect_to restaurants_url
+    @reservation = Reservation.find(params[:id])
+    @reservation.destroy
+    redirect_to restaurants_url
   end
 
   private
-
   def reservation_params
    params.require(:reservation).permit(:party_size, :date, :restaurant_id, :user_id)
   end

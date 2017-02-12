@@ -12,4 +12,7 @@
     Date:  <%= reservation.date %>
     Party Size:  <%= reservation.party_size%> people
   </p>
+
+  <%= link_to 'Edit', edit_user_reservation_path(user_id: @user.id, id: reservation.id) %>
+  | <%= link_to 'Delete', user_reservation_path(user_id: @user.id, id: reservation.id), method: :delete, data: {confirm: "Are you sure you want to delete the reservation?"} %>
 <% end %>
