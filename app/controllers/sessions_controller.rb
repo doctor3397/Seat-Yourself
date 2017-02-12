@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
 
       # If both of those evaluate to 'true', we create a key-value pair in the session hash. ':user_id' is the key and the user's id is the value
       session[:user_id] = user.id
-      flash[:notice] = "Hello #{user.name}Logged in!"
+      # flash[:notice] = "Hello #{user.name}Logged in!"
       redirect_to restaurants_url
     else
       flash.now[:alert] = 'Invalid email or password'
@@ -22,7 +22,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    flash[:notice] = "Logged out!"
+    # flash[:notice] = "Logged out!"
     redirect_to restaurants_url
   end
 
