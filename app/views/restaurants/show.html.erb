@@ -4,13 +4,14 @@
    <p>City: <%= @restaurant.city %></p>
  </div>
 
-<h2>Seats Remain</h2>
+<h2>Remain Seats</h2>
 <% t = Time.now%>
-<p><% t %><%= t.year %>/<%= t.month %>/<%= t. day%> Seats remain <%= @restaurant.remain_seat(t) %></p>
-<p><% t += 1.day  %><%= t.year %>/<%= t.month %>/<%= t. day%> Seats remain <%= @restaurant.remain_seat(t) %></p>
-<p><% t += 1.day  %><%= t.year %>/<%= t.month %>/<%= t. day%> Seats remain <%= @restaurant.remain_seat(t) %></p>
-<p><% t += 1.day  %><%= t.year %>/<%= t.month %>/<%= t. day%> Seats remain <%= @restaurant.remain_seat(t) %></p>
-<p><% t += 1.day  %><%= t.year %>/<%= t.month %>/<%= t. day%> Seats remain <%= @restaurant.remain_seat(t) %></p>
+<% res_time = [["5-6PM",1], ["6-7PM", 2], ["7-8PM", 3], ["8-9PM", 4], ["9-10PM", 5]].to_h%>
+<% res_time.each do |k, v|%>
+  <% if @restaurant.remain_seat(t, res_time[k]) > 0 %>
+    <p><%= "#{k}: #{@restaurant.remain_seat(t, res_time[k])}"%></p>
+  <%end%>
+<% end %>
 
 <h2>Make A Reservation</h2>
 
