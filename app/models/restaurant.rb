@@ -10,8 +10,9 @@ class Restaurant < ApplicationRecord
     res_time: res_time).sum(:party_size)
   end
 
-  def remain_seat_search(date)
+  def remain_seat_search(date, res_time)
     capcity - reservations.where(restaurant_id: id,
-    date: date).sum(:party_size)
+    date: date,
+    res_time: res_time).sum(:party_size)
   end
 end
