@@ -52,11 +52,14 @@ input[type="submit"] {
 .actions {
   display: inline-block;
   padding: 0 4px;
+  color: black;
 }
 
 /*Header*/
+
 header {
   background: white;
+  height: 120px;
 }
 
 header img {
@@ -65,17 +68,26 @@ header img {
   padding: 5px;
 }
 
-nav {
+nav.navbar.navbar-default.navbar-static-top {
+  width: 100%;
+  background: white;
+}
+
+/*nav {
   display: block;
   float: right;
   margin-top: 30px;
-}
+}*/
 
 nav li{
-  display: inline-block;
+  /*display: inline-block;*/
   text-transform: uppercase;
-  font-size: 90%;
+  /*font-size: 90%;*/
   padding: 5px;
+}
+
+nav p {
+  padding-top: 12px;
 }
 
 /*Search*/
@@ -87,6 +99,10 @@ nav li{
   background-size: cover;
   background-attachment: fixed;
   text-align: center;
+  color: white;
+}
+
+.search label{
   color: white;
 }
 
