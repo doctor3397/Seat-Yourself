@@ -14,13 +14,104 @@
  *= require_self
  */
 
-main {
-  max-width: 900px;
-  margin-left: auto;
-  margin-right: auto;
-  border: 1px solid black;
+html, body, main{
+  font-family: 'Lato', 'Arial', sans-serif;
+  font-weight: 300;
+  font-size: 20px;
+  text-rendering: optimizeLegibility;
+  margin: 0;
+  padding: 0;
+  text-align: center;
 }
 
-body img {
-  max-width: 50%;
+h1 {
+  font-size: 200%;
+  word-spacing: 2px;
+  letter-spacing: 1px;
+  padding: 30px 10px 0 0;
+  text-transform: uppercase;
+  font-weight: 300;
+  color: #fc318c;
+}
+
+h2 {
+  font-size: 150%;
+  word-spacing: 1.5px;
+  letter-spacing: 1px;
+  padding: 20px 8px 0 0;
+  text-transform: uppercase;
+  font-weight: 300;
+  color: #fc318c;
+}
+
+input[type="submit"] {
+  color: #fc318c;
+}
+
+.field,
+.actions {
+  display: inline-block;
+  padding: 0 4px;
+}
+
+/*Header*/
+header {
+  background: white;
+}
+
+header img {
+  height: 100px;
+  width: auto;
+  padding: 5px;
+}
+
+nav {
+  display: block;
+  float: right;
+  margin-top: 30px;
+}
+
+nav li{
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: 90%;
+  padding: 5px;
+}
+
+/*Search*/
+.search {
+  margin-top: -35px;
+  background-image:linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(food.jpg);
+  height: 60vh;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  text-align: center;
+  color: white;
+}
+
+/*All Restaurants*/
+.restaurants img {
+  height: 300px;
+  overflow: hidden;
+}
+
+.restaurants div {
+  display: inline-block;
+}
+
+/*
+main {
+  border: 1px solid black;
+  background: lightgrey;
+}*/
+
+
+footer {
+  margin-top: 50px;
+  padding-top: 100px;
+  padding-bottom: 50px;
+  background: #fc318c;
+  position: relative;
+  color: white;
 }

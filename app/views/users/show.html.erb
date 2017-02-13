@@ -1,15 +1,15 @@
 <div>
-  <h3>Account</h3>
+  <h1>Account</h1>
   <p>Name: <%= @user.name %></p>
   <p>Email: <%= @user.email %></p>
 </div>
 
-<h3>Reservations</h3>
+<h2>Reservations</h2>
 
 <% @reservations.each do |reservation| %>
   <h4><%= @restaurants.find_by(id: reservation.restaurant_id).name %></h4>
 
-  <p> Date:  <%= reservation.date %>, 
+  <p> Date:  <%= reservation.date %>,
   <% timeslot = [1,"5-6PM"], [2,"6-7PM"], [3,"7-8PM"], [4,"8-9PM"], [5,"9-10PM"]%>
     <% hash_timeslot = Hash[timeslot] %>
     <%=  hash_timeslot[reservation.res_time] %></p>
