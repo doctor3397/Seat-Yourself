@@ -115,7 +115,8 @@ nav p {
 /*Search*/
 .search {
   margin-top: -35px;
-  background-image:linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(food.jpg);
+      /*background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(img/hero.jpg);*/
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), asset-url("food.jpg");
   height: 60vh;
   background-position: center;
   background-size: cover;
