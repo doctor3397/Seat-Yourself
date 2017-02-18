@@ -22,12 +22,28 @@
 </section>
 
 <section class="locations">
-  <h1>Cities</h1>
-  <div class="annex">
+  <h1>Search by Cities</h1>
+
+  <div class="city">
     <%= form_tag  searches_path, method: "get" do |f| %>
       <%= hidden_field_tag :city, 'The Annex' %>
-      <%= image_submit_tag('Annex.JPG')%>
+      <%= image_submit_tag('Annex.JPG', class:'submit')%>
     <% end %>
+    <h3>The Annex<h3>
+  </div>
+  <div class="city">
+    <%= form_tag  searches_path, method: "get" do |f| %>
+      <%= hidden_field_tag :city, 'Queen West' %>
+      <%= image_submit_tag('queen west.jpg', class:'submit')%>
+    <% end %>
+    <h3>Queen West<h3>
+  </div>
+  <div class="city">
+    <%= form_tag  searches_path, method: "get" do |f| %>
+      <%= hidden_field_tag :city, 'King West' %>
+      <%= image_submit_tag('king west.jpg', class:'submit')%>
+    <% end %>
+    <h3>King West<h3>
   </div>
 </section>
 

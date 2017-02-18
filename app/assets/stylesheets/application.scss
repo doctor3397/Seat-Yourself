@@ -112,6 +112,12 @@ nav p {
   padding-top: 12px;
 }
 
+/*Cities*/
+.city {
+  height: 200px;
+  display: inline-block;
+}
+
 /*Search*/
 .search {
   margin-top: -35px;
@@ -135,6 +141,7 @@ nav p {
   overflow: hidden;
 }
 
+.city input.submit:hover,
 .restaurants img:hover {
   transform: scale(0.97);
   opacity: 1;
