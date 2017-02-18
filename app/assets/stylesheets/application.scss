@@ -161,6 +161,9 @@ footer {
 }
 
 @media (max-width: 460px) {
+  header {
+    height: 86px;
+  }
   header img {
     height: 70px;
   }
