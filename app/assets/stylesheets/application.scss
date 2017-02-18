@@ -159,3 +159,9 @@ footer {
   position: relative;
   color: white;
 }
+
+@media (max-width: 460px) {
+  header img {
+    height: 70px;
+  }
+}
