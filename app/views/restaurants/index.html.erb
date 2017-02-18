@@ -21,6 +21,15 @@
   <% end %>
 </section>
 
+<section class="locations">
+  <h1>Cities</h1>
+  <div class="annex">
+    <%= form_tag  searches_path, method: "get" do |f| %>
+      <%= hidden_field_tag :city, 'The Annex' %>
+      <%= image_submit_tag('Annex.JPG')%>
+    <% end %>
+  </div>
+</section>
 
 <section class="restaurants">
   <h1>All Restaurants</h1>
