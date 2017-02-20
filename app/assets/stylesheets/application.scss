@@ -113,10 +113,19 @@ nav p {
 }
 
 /*Cities*/
-.city {
+section.locations .city {
   height: 200px;
   display: inline-block;
 }
+
+// .city h3 {
+//   position: relative;
+//   top: -190px;
+//   color: white;
+//   padding: 78px 5px;
+//   margin: 0;
+//   background-color: rgba(252, 49, 140, 0.41);
+// }
 
 /*Search*/
 .search {
@@ -141,7 +150,7 @@ nav p {
   overflow: hidden;
 }
 
-.city input.submit:hover,
+.city input.city_submit:hover,
 .restaurants img:hover {
   transform: scale(0.97);
   opacity: 1;
@@ -150,6 +159,14 @@ nav p {
 .restaurants div {
   display: inline-block;
 }
+
+/* Show Restaurant*/
+#map, .map {
+  height: 300px;
+  width: 400px;
+  margin: 0 auto;
+ }
+
 
 /*
 main {

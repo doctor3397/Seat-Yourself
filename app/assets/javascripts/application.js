@@ -13,3 +13,59 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+$(function() {
+
+  /* load Google streetview */
+  // var city = $('p#city').text();
+  // var key = "AIzaSyC5DTeCGA1dhDobWegR-EpbdM0PWG1O_Xc";
+  // var url_google= "https://maps.googleapis.com/maps/api/streetview?size=600x400&location=" + city + "&key=" + key ;
+  // $('#restaurant_map').append('<img class="map" src="' + url_google + '">');
+});
+
+  /* Geocoding */
+function initMap(){
+  var map = new google.maps.Map(document.getElementById('map'));
+
+  var city = $('p#city').text();
+  var geocoder = new google.maps.Geocoder();
+  var marker = new google.maps.Marker();
+  geocoder.geocode(
+    { address: city,
+      componentRestrictions: {locality: 'Toronto'}
+    }, function(results, status){
+
+      if (status == google.maps.GeocoderStatus.OK){
+        map.setCenter(results[0].geometry.location);
+        map.setZoom(15);
+      }
+
+      marker = new google.maps.Marker({
+        position: results[0].geometry.location,
+        map: map
+      });
+  });
+
+}
+
+
+/* Using Lat and Lng for Map*/
+// function initMap() {
+//   var uluru = {lat: -25.363, lng: 131.044};
+//   var map = new google.maps.Map(document.getElementById('map'), {
+//     zoom: 4,
+//     center: uluru
+//   });
+//   var marker = new google.maps.Marker({
+//     position: uluru,
+//     map: map
+//   });
+//
+//   var infowindow = new google.maps.InfoWindow({
+//     content: 'Uluru'
+//   });
+//
+//   marker.addListener('click', function(){
+//     infowindow.open(map, marker);
+//   });
+// }
