@@ -2,6 +2,7 @@ class Restaurant < ApplicationRecord
   has_many :reservations
   belongs_to :owner, class_name: 'User'
   has_many :users, through: :reservations
+  has_many :reviews
 
   def remain_seat(date, res_time)
     capcity - reservations.where(

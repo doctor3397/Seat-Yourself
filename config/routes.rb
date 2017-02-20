@@ -12,7 +12,9 @@ Rails.application.routes.draw do
 
   resources :reservations
 
-  resources :restaurants
+  resources :restaurants do
+    resources :reviews, only: [:show, :create, :destroy]
+  end
 
   resources :searches
 
