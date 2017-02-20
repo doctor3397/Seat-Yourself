@@ -28,7 +28,7 @@ class ReviewsController < ApplicationController
 
   private
   def review_params
-    params.require(:review).permit(:comment, :product_id)
+    params.require(:review).permit(:comment, :restaurant_id, :id)
   end
 
   def load_restaurant

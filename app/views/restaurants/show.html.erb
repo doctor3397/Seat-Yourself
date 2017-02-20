@@ -18,7 +18,7 @@
 
 <h2>Make A Reservation</h2>
 
- <% if current_user %>
+<% if current_user %>
 
     <%= form_for(@reservation) do |f| %>
       <%= f.hidden_field :restaurant_id %>
@@ -61,4 +61,33 @@
     <%= link_to("Sign Up", new_user_path)%>.</p>
   </p>
 
+<% end %>
+
+<h2>Reviews</h2>
+<% @restaurant.reviews.each do |review| %>
+  <p>
+    <%= review.comment %>
+    <% if review.user != nil %>
+      <em>     by <%= review.user.name %></em>      <%= review.created_at.year %>/<%= review.created_at.month %>/<%= review.created_at.day %>
+    <% end %>
+  </p>
+<% end %>
+
+<% if current_user %>
+  <%= form_for([@restaurant, Review.new]) do |f| %>
+
+    <div class="field">
+      <%= f.text_area :comment %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  <% end %>
+
+<% else %>
+  <p>To write a review, please
+    <%= link_to("Log In", new_sessions_path)%>
+    <%= link_to("Sign Up", new_user_path)%>.</p>
+  </p>
 <% end %>
