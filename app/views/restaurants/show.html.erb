@@ -66,6 +66,9 @@
 <h2>Reviews</h2>
 <% @restaurant.reviews.each do |review| %>
   <p>
+    <% if review.ratings != nil %>
+      <div class="review-rating" data-score="<%= review.ratings %>"></div>
+    <% end %>
     <%= review.comment %>
     <% if review.user != nil %>
       <em>     by <%= review.user.name %></em>      <%= review.created_at.year %>/<%= review.created_at.month %>/<%= review.created_at.day %>
@@ -75,6 +78,8 @@
 
 <% if current_user %>
   <%= form_for([@restaurant, Review.new]) do |f| %>
+    <div id="rating-form">
+    </div>
 
     <div class="field">
       <%= f.text_area :comment %>

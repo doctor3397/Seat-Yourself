@@ -23,6 +23,20 @@ $(function() {
   // $('#restaurant_map').append('<img class="map" src="' + url_google + '">');
 });
 
+/*Raty ratings */
+$('.review-rating').raty({
+  readOnly:true,
+  score: function(){
+    return $(this).attr('data-score');
+  },
+  path: '/assets/'
+});
+
+$('#rating-form').raty({
+  scoreName: 'review[ratings]',
+  path: '/assets/'
+});
+
   /* Geocoding */
 function initMap(){
   var map = new google.maps.Map(document.getElementById('map'));
