@@ -19,6 +19,7 @@ class ReservationsController < ApplicationController
     if reservation.party_size < restaurant.remain_seat_search(params[:reservation][:date], params[:reservation][:res_time])
 
       if reservation.save
+        # UserMailer.make_reservation_email(reservation.user, reservation, Restaurant.find(reservation.restaurant_id)).deliver_now
         redirect_to user_path(reservation.user)
       else
         redirect_to restaurant_path(params[:reservation][:restaurant_id])

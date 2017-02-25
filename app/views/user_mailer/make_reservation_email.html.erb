@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hi <%= @user.name %></h1>
+    <p>
+      You have successfully made a reservation!
+    </p>
+    <h4><%=restaurant.name %></h4>
+    <p> Date:  <%= reservation.date %>,
+    <% timeslot = [1,"5-6PM"], [2,"6-7PM"], [3,"7-8PM"], [4,"8-9PM"], [5,"9-10PM"]%>
+      <% hash_timeslot = Hash[timeslot] %>
+      <%=  hash_timeslot[reservation.res_time] %></p>
+    <p>Party Size:  <%= reservation.party_size%> people</p>
+
+  </body>
+</html>
